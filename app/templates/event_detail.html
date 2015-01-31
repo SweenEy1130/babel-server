@@ -3,24 +3,38 @@
 	<div class="main">
 	    <div class="wrap">
             <div class="column_middle">
-		         <div class="weather">
-		               <h3><i><img src="{{ url_for('static', filename='images/location.png') }}" alt="" /> </i> Cluj-Napoca / Ro</h3>
-		              <div class="today_temp">
-		                <div class="temp">
-							<figure>Fri 29/06<span>24<em>o</em></span></figure>
+		        <div class="weather">
+		            <h3><i><img src="{{ url_for('static', filename='images/events.png') }}" alt="" /> </i>{{title}}</h3>
+		            <div class="today_temp">
+		            	<div class="temp">
+						<figure>{{description}}</figure>
 						</div>
-						<img src="{{ url_for('static', filename='images/sun.png') }}" alt="" />
 					</div>
-						<div class="temp_list">
-				      			<ul>
-						  		    <li><a href="#"><span class="day_name">Sat</span>&nbsp; 29/06
-						  			<label class="digits">25<em>o</em> <i><img src="{{ url_for('static', filename='images/sun_icon1.png') }}" alt="" /></i></label><div class="clear"></div></a></li>
-						  			<li class="active"><a href="#"><span class="day_name">Sun</span>&nbsp; 30/06
-						  			<label class="digits">22<em>o</em> <i><img src="{{ url_for('static', filename='images/clouds.png') }}" alt="" /></i></label><div class="clear"></div></a></li>
-				    		</ul>
-				      </div>
-		          </div>
-    	    </div>
+					<div class="temp_list">
+				     	<ul>
+							<li><a href="#"><span class="day_name">From</span>&nbsp; {{location}}
+							<div class="clear"></div></a></li>
+							<li><a href="#"><span class="day_name">To</span>&nbsp; {{destination}}
+							<div class="clear"></div></a></li>
+							<li><a href="#"><span class="day_name">Available</span>&nbsp; {{available}}/{{capacity}}
+							<div class="clear"></div></a></li>
+							<li><a href="#"><span class="day_name">Budget</span>&nbsp; {{price}}
+							<div class="clear"></div></a></li>
+							<li><a href="#"><span class="day_name">Event date</span>&nbsp; {{event_date}}
+							<div class="clear"></div></a></li>
+
+							<li class="list">
+								<a href="#">
+								<span class="day_name"></span>&nbsp;
+								<img src="{{ url_for('static', filename='avatar/1.jpg') }}" alt="" />
+								<span class="day_name"></span>&nbsp;
+								<img src="{{ url_for('static', filename='avatar/2.jpg') }}" alt="" />
+								</a>
+							</li>
+				    	</ul>
+				    </div>
+				</div>
+			</div>
     	<div class="clear"></div>
  	 </div>
    </div>
