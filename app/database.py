@@ -14,11 +14,12 @@ from decorator import requires_auth
 def InitDB():
     db.drop_all()
     db.create_all()
-    adams = User('adams', 'admas@example.com')
-    bob = User('bob', 'bob@example.com')
-    celia = User('celia', 'celia@example.com')
-    david = User('david', 'david@example.com')
-    latrip = Event('LAtrip', 5, 4, 0, 'USC North Campus')
+    adams = User('adams', 'admas@example.com','1','11')
+    bob = User('bob', 'bob@example.com','2','22')
+    celia = User('celia', 'celia@example.com','3','33')
+    david = User('david', 'david@example.com','4','44')
+    # title, description, capacity, available, price, location, destination, event_date
+    latrip = Event('LAtrip', 'Go around Los Angeles', 5, 4, '>500', 'USC North Campus', '99 Ranch', '11/30/1991 10:20:12')
     latrip.owners.append(adams)
     latrip.applicants.append(david)
     latrip.applicants.append(bob)

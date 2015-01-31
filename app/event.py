@@ -54,17 +54,21 @@ def GetEventList():
     current_user = User.query.filter_by(username = session['username']).first()
     return jsonify(result = current_user.GetUserEvents(action))
 
+# title, description, capacity, available, price, location, destination, event_date
 @application.route("/create_event", methods=['POST'])
 @requires_auth
 def CreateEvent():
     current_user = User.query.filter_by(username = session['username']).first()
+    title = request.form.get('title')
     description = request.form.get('description')
     capacity = request.form.get('capacity')
     available = request.form.get('available')
     price = request.form.get('price')
     location = request.form.get('location')
+    destination = request.form.get('destination')
+    event_date = request.form.get('event_date')
 
-    new_event = Event(description, capacity, available, price, location)
+    new_event = Event(title, description, capacity, available, price, location, destination, event_date)
     new_event.owners.append(current_user)
     new_event.participants.append(current_user)
     db.session.add(new_event)
@@ -74,6 +78,7 @@ def CreateEvent():
     except SQLAlchemyError as e:
         return jsonify(status = -1, info = "%s" % str(e))
 
+from app.utils import escapeDatetime
 @application.route("/edit_event", methods=['POST'])
 @requires_auth
 def EditEvent():
@@ -84,13 +89,19 @@ def EditEvent():
     available = request.form.get('available')
     price = request.form.get('price')
     location = request.form.get('location')
+    destination = request.form.get('destination')
+    event_date = request.form.get('event_date')
 
     old_event = Event.query.filter_by(id = eid).first()
+    old_event.title = title
     old_event.description = description
     old_event.capacity = capacity
     old_event.available = available
     old_event.price = price
     old_event.location = location
+    old_event.destination = destination
+    old_event.event_date = escapeDatetime(event_date)
+
     try:
         db.session.commit()
         return jsonify(status = 0)

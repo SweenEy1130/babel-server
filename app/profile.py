@@ -3,7 +3,7 @@
 """
 API(Post):
     /create_user @parameter [username:zhangsan, password:123]
-    /delete_user 
+    /delete_user
     /edit_user  @parameter[Usernaem]
     /view_user userID[UserId]
     /accept_applicant
@@ -31,14 +31,14 @@ def create_user():
             db.session.add(newUser)
             db.session.commit();
             return jsonify(results = {'user':usrn, 'email':email, '':'item was created'})
-            #write to the database 
+            #write to the database
     except ValueError:
         sys.stderr.write('get user infor error!')
 
 @application.route("/delete_user", methods=['Get'])
 def delete_user():
     ##Todo
-    usrn = request.args.get('username') 
+    usrn = request.args.get('username')
     user = User.query.filter_by(username = usrn).first()
     if user is None:
         return jsonify(results = {'WWW-Authenticate': 'User %s is not exist' % usrn})
@@ -47,11 +47,14 @@ def delete_user():
     db.session.commit()
     return jsonify(results = {'WWW-Authenticate': 'User %s deleted' % usrn})
 
+"""
+Doesn't finish yet
+"""
 @application.route("/edit_user", methods=['Get'])
 def edit_user():
     try:
         usrn = request.args.get('username')
-        
+
         user = User.query.filter_by(username = usrn).first()
         user.email = email
         session.submit()
@@ -66,13 +69,13 @@ def view_user():
         user = User.query.filter_by(username = usrn).first()
         if user is None:
             return jsonify(results = {'Result':'user does not exist!'})
-        else: 
-            return jsonify(results = {'username':user.username, 'email':user.email,})
+        else:
+            return jsonify(results = user.serialize)
     except ValueError:
         sys.stderr.write('get user infor error!')
 
     #/create_user @parameter [username:zhangsan, password:123]
-    #/delete_user 
+    #/delete_user
     #/edit_user  @parameter[Usernaem]
     #/view_user userID[UserId]
     #/accept_applicant
