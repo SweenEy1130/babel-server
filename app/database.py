@@ -3,7 +3,6 @@
 API:
     /initdb         test create User model
     /showdb         test list all the User
-    /login?username=?
 """
 from app.model import User
 from app import *
@@ -19,7 +18,7 @@ def InitDB():
     bob = User('bob', 'bob@example.com')
     celia = User('celia', 'celia@example.com')
     david = User('david', 'david@example.com')
-    latrip = Event('LAtrip', 5, 4, 0)
+    latrip = Event('LAtrip', 5, 4, 0, 'USC North Campus')
     latrip.owners.append(adams)
     latrip.applicants.append(david)
     latrip.applicants.append(bob)

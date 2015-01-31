@@ -8,3 +8,4 @@ db.init_app(application)
 # Register handlers
 import app.database
 import app.login
+import app.event
