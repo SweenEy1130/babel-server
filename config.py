@@ -2,7 +2,7 @@
 
 # Server Configuration
 PORT = 80
-HOST = '192.168.1.88'
+HOST = '127.0.0.1'
 
 # Debug Mode
 DEBUG = True
