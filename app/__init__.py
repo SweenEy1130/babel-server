@@ -11,3 +11,4 @@ import app.login
 import app.event
 import app.profile
 import app.push
+import app.views
