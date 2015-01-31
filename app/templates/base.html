@@ -1,0 +1,73 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<head>
+<title>Babel: social carpool</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" media="all"/>
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/login.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/Chart.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.easing.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.ulslide.js') }}"></script>
+<link type="text/css" href="{{ url_for('static', filename='css/mmenu.css') }}" rel="stylesheet" media="all" />
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.mmenu.min.js') }}"></script>
+<script type="text/javascript">
+		$(function() {
+			$('nav#menu').mmenu();
+		});
+	</script>
+</head>
+<body>
+	<div class="wrap">
+	      <div class="header">
+	      	  <div class="header_top">
+	      	     	<div class="menu-ico"><a href="#menu"></a></div>
+					  <div class="profile_details">
+				    		   <div id="loginContainer">
+				                  <a id="loginButton" class=""><span>Me</span></a>
+				                    <div id="loginBox">
+				                      <form id="loginForm">
+				                        <fieldset id="body">
+				                            <div class="user-info">
+							        			<h4>Hello,<a href="#"> Username</a></h4>
+							        			<ul>
+							        				<li class="logout"><a href="#"> Logout</a></li>
+							        				<div class="clear"></div>
+							        			</ul>
+							        		</div>
+				                        </fieldset>
+				                    </form>
+				                </div>
+				            </div>
+				             <div class="profile_img">
+				             	<a href=""><img src="{{ url_for('static', filename='images/profile_img40x40.jpg') }}" alt="" />	</a>
+				             </div>
+				             <div class="clear"></div>
+					    </div>
+		 		      <div class="clear"></div>
+				   </div>
+			</div>
+	</div>
+ 	{% block body %}{% endblock %}
+   	</div>
+   		<nav id="menu">
+				<ul>
+					<li><a href="/index"><i><img src="{{ url_for('static', filename='images/user.png') }}"></i> Profile</a></li>
+					<li><a href="/messages"><span><i><img src="{{ url_for('static', filename='images/mail.png') }}"></i> Messages</span><label class="digits active">5</label><div class="clear"></div></a></li>
+			  		<li><a href="/events"><span> <i><img src="{{ url_for('static', filename='images/events.png') }}"></i> Events</span><label class="digits">5</label><div class="clear"></div></a></li>
+					<li><a href="#"><i><img src="{{ url_for('static', filename='images/settings.png') }}" alt="" /></i>Settings</a></li>
+				</ul>
+		</nav>
+	<div class="copy-right">
+		<p>© 2013 Designed by <a href="http://graphicburger.com/flat-design-ui-components/" target="_blank">GraphicBurger</a>  • Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a> </p>
+	</div>
+</body>
+</html>
+
