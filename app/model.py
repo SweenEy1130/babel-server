@@ -47,7 +47,7 @@ class User(db.Model):
         else:
             pass
 
-    def __init__(self, username, email, status, description):
+    def __init__(self, username, email, status = '', description = ''):
         self.username = username
         self.email = email
         self.status = status
@@ -55,9 +55,9 @@ class User(db.Model):
 
     @property
     def serialize(self):
-        owner_events = [item.description for item in self.owner_events]
-        applicant_events = [item.description for item in self.applicant_events]
-        participant_events = [item.description for item in self.participant_events]
+        owner_events = [item.title for item in self.owner_events]
+        applicant_events = [item.title for item in self.applicant_events]
+        participant_events = [item.title for item in self.participant_events]
 
         return {
             'username': self.username,

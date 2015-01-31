@@ -9,14 +9,12 @@ API(Post):
     /accept_applicant
 
 """
-
-
 import sys
 from app import login
 from app.model import *
 from app import *
 from flask import jsonify, request, session
-from decorator import requires_auth, check_auth
+from decorator import requires_auth
 
 @application.route("/create_user", methods=['Get'])
 def create_user():
@@ -47,22 +45,25 @@ def delete_user():
     db.session.commit()
     return jsonify(results = {'WWW-Authenticate': 'User %s deleted' % usrn})
 
-"""
-Doesn't finish yet
-"""
 @application.route("/edit_user", methods=['Get'])
+@requires_auth
 def edit_user():
     try:
-        usrn = request.args.get('username')
-
+        usrn = session['username']
         user = User.query.filter_by(username = usrn).first()
-        user.email = email
+
+        status = request.args.get('status')
+        description = request.args.get('description')
+        user.status = status
+        user.description = description
+
         session.submit()
 
     except ValueError:
-        sys.stderr.write('get user infor error!')
+        sys.stderr.write('get user information error!')
 
 @application.route("/view_user", methods=['Get'])
+@requires_auth
 def view_user():
     try:
         usrn = request.args.get('username')
