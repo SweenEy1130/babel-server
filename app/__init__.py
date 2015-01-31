@@ -9,3 +9,4 @@ db.init_app(application)
 import app.database
 import app.login
 import app.event
+import app.profile
