@@ -24,8 +24,5 @@ if __name__ == '__main__':
     print "Test for Login"
     TestCaseForLogin('bob')
 
-    print "Test for editing user profile"
-    TestCaseForEditUser('status', 'description')
-
-
-
+    # print "Test for editing user profile"
+    # TestCaseForEditUser('status', 'description')

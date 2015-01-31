@@ -83,4 +83,3 @@ def view_user():
     #/edit_user  @parameter[Usernaem]
     #/view_user userID[UserId]
     #/accept_applicant
-
