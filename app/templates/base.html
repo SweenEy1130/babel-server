@@ -36,9 +36,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				                      <form id="loginForm">
 				                        <fieldset id="body">
 				                            <div class="user-info">
-							        			<h4>Hello,<a href="#"> Username</a></h4>
+							        			<h4>Hello,<a href="#">{{ session['username'] }}</a></h4>
 							        			<ul>
-							        				<li class="logout"><a href="#"> Logout</a></li>
+							        				<li class="logout"><a href="{{ url_for('Signout') }}"> Logout</a></li>
 							        				<div class="clear"></div>
 							        			</ul>
 							        		</div>

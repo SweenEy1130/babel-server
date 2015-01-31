@@ -1,31 +1,16 @@
 {% extends "base.html" %}
 {% block body %}
-<body>
 	<div class="main">
 	    <div class="wrap">
 	       <div class="column_left">
-	       	  <!---
-	    		 <div class="menu_box">
-	    		 	 <h3>Menu Box</h3>
-	    		 	   <div class="menu_box_list">
-				      		<ul>
-						  		<li><a href="#" class="messages"><span>Messages</span><label class="digits">24</label><div class="clear"></div></a></li>
-						  		<li class="active"><a href="#" class="invites"><span>Invites</span><label class="digits active">3</label><div class="clear"></div></a></li>
-						  		<li><a href="#" class="events"><span>Events</span><label class="digits">5</label><div class="clear"></div></a></li>
-						  		<li><a href="#" class="account_settings"><span>Account Settings</span></a></li>
-						  		<li><a href="#" class="statistics"><span>Statistics</span></a></li>
-				    		</ul>
-				      </div>
-	    		 </div>
-	    		 ----->
-
             <div class="column_middle">
               <div class="column_middle_grid1">
 		         <div class="profile_picture">
 		        	<a href=""><img src="{{ url_for('static', filename='images/profile_img150x150.jpg') }}" alt="" />	</a>
 		            <div class="profile_picture_name">
-		            	<h2>Anne Hathaway</h2>
-		            	<p>Lorem ipsum dolor sit amet consectetur adipisicing </p>
+		            	<h2>{{username}}</h2>
+		            	<h4>{{status}}</h4>
+		            	<p>{{description}}</p>
 		            </div>
 		             <span><a href="#"> <img src="{{ url_for('static', filename='images/follow_user.png') }}" alt="" /> </a></span>
 		          </div>

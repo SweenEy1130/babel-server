@@ -1,29 +1,28 @@
 {% extends "base.html" %}
 {% block body %}
-<body>
-
 	<div class="main">
 	    <div class="wrap">
                         <div class="column_right">
 				 <div class="column_right_grid sign-in">
 				 	<div class="sign_in">
 				       <h3>Sign in to your account</h3>
-					    <form>
+					    <form action="/signin" method="POST">
 					    	<span>
-					 	    <i><img src="{{ url_for('static', filename='images/mail.png') }}" alt="" /></i><input type="text" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}">
+					 	    <i><img src="{{ url_for('static', filename='images/mail.png') }}" alt="" /></i>
+                            <input name="username" type="text" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}">
 					 	    </span>
 					 	    <span>
 					 	     <i><img src="{{ url_for('static', filename='images/lock.png') }}" alt="" /></i>
-					 	     <input type="password" placeholder="password">
+					 	     <input name="password" type="password" placeholder="password">
 					 	    </span>
 					 		<input type="submit" class="my-button"  value="Sign In">
 					 	</form>
-					       <h4><a href="#">Forget Password?</a></h4>
+					    <h4><a href="#">Forget Password?</a></h4>
           		       </div>
-          		 	  <div class="signin_facebook">
+          		 	<div class="signin_facebook">
 					   	 <p><a href="#">  <i> <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="" /></i>Sign in with facebook</a></p>
-				      </div>
-				   </div>
+				    </div>
+				  </div>
              </div>
     	<div class="clear"></div>
  	 </div>
