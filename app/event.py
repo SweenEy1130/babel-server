@@ -148,7 +148,6 @@ def ApplyEvent():
     if current_user in apply_event.applicants:
         return jsonify(status = -2, info = "You have duplicated application!")
     else:
-
         apply_event.applicants.append(current_user)
 
     try:
@@ -156,6 +155,32 @@ def ApplyEvent():
         return jsonify(status = 0)
     except SQLAlchemyError as e:
         return jsonify(status = -1, info = "%s" % str(e))
+
+"""
+POST    /cancel_apply_event
+@parameter:
+    eid: Int
+@response:
+status:
+    0 for success
+    -1 for SQL Error
+"""
+@application.route("/cancel_apply_event", methods=['POST'])
+@requires_auth
+def CancelApplyEvent():
+    current_user = User.query.filter_by(username = session['username']).first()
+    eid = request.form.get('eid')
+
+    apply_event = Event.query.filter_by(id = eid).first()
+    if current_user in apply_event.applicants:
+        apply_event.applicants.remove(current_user)
+
+    try:
+        db.session.commit()
+        return jsonify(status = 0)
+    except SQLAlchemyError as e:
+        return jsonify(status = -1, info = "%s" % str(e))
+
 
 """
 POST    /approve_apply
@@ -193,6 +218,48 @@ def ApproveApplication():
     else:
         apply_event.participants.append(apply_user)
         apply_event.applicants.remove(apply_user)
+
+    try:
+        db.session.commit()
+        return jsonify(status = 0)
+    except SQLAlchemyError as e:
+        return jsonify(status = -5, info = "%s" % str(e))
+
+
+"""
+POST    /cancel_approve_apply
+@parameter:
+    eid: Int
+    uid: Int
+@response:
+    status:
+        0 for success
+        -1 for already approved
+        -2 for not authorized
+        -3 for not an applicants
+        -4 for user doesn't exists
+        -5 for SQL error
+"""
+@application.route("/cancel_approve_apply", methods=['POST'])
+@requires_auth
+def CancelApproveApplication():
+    current_user = User.query.filter_by(username = session['username']).first()
+    eid = request.form.get('eid')
+    uid = request.form.get('uid')
+
+    apply_event = Event.query.filter_by(id = eid).first()
+    apply_user = User.query.filter_by(id = uid).first()
+
+    if not apply_user:
+        return jsonify(status = -4, info = "User doesn't exist!")
+
+    if current_user not in apply_event.owners:
+        return jsonify(status = -2, info = "You have permmision to approve participants!")
+    if apply_user not in apply_event.participants:
+        return jsonify(status = -3, info = "The user doesn't submit the application!")
+    elif apply_user in apply_event.participants:
+        apply_event.participants.remove(apply_user)
+        apply_event.applicants.append(apply_user)
 
     try:
         db.session.commit()

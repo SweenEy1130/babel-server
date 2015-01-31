@@ -46,6 +46,8 @@ A social carpool application server based on Python flask framework for the back
 	- 2 for applied events
     - 3 for participated events
     - 4 for all events relating to me
+
+
 ###### @response:
 - result: model.Event JSON
 
@@ -59,6 +61,8 @@ A social carpool application server based on Python flask framework for the back
 - available: Int
 - price: String
 - location: String
+
+
 ###### @response:
 - status:
     - 0  for success
@@ -74,6 +78,8 @@ A social carpool application server based on Python flask framework for the back
 - available: Int
 - price: String
 - location: String
+
+
 ###### @response:
 - status:
     - 0  for success
@@ -84,6 +90,8 @@ A social carpool application server based on Python flask framework for the back
 `POST    /delete_event`
 ###### @parameter:
 - eid: Int
+
+
 ###### @response:
 - status:
     - 0  for success
@@ -94,11 +102,25 @@ A social carpool application server based on Python flask framework for the back
 `POST    /apply_event`
 ###### @parameter:
 - eid: Int
+
+
 ###### @response:
 - status:
     - 0 for success
     - -1 for
     - -2 for duplicated application
+
+#### Cancel Application
+
+`POST    /cancel_apply_event`
+###### @parameter:
+- eid: Int
+
+
+###### @response:
+- status:
+    - 0 for success
+    - -1 for SQL Error
 
 #### Approve application
 
@@ -106,6 +128,25 @@ A social carpool application server based on Python flask framework for the back
 ###### @parameter:
 - eid: Int
 - uid: Int
+
+
+###### @response:
+- status:
+    - 0 for success
+    - -1 for already approved
+    - -2 for not authorized
+    - -3 for not an applicants
+    - -4 for user doesn't exists
+    - -5 for SQL error
+
+#### Cancel application approvement
+
+`POST    /cancel_approve_apply`
+###### @parameter:
+- eid: Int
+- uid: Int
+
+
 ###### @response:
 - status:
     - 0 for success

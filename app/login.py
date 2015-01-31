@@ -13,7 +13,7 @@ from decorator import requires_auth, check_auth
 def Login():
     try:
         usrn = request.args.get('username')
-        if  usrn and check_auth(usrn):
+        if usrn and check_auth(usrn):
             session['username'] = request.args.get('username')
         else:
             return jsonify(results = {'WWW-Authenticate': 'User %s doesn\'t exists' % usrn})

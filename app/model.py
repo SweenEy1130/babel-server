@@ -45,7 +45,7 @@ class User(db.Model):
         elif action == 3:
             return [item.serialize for item in self.participant_events]
         else:
-            pass
+            return [item.serialize for item in list(set(self.owner_events) | set(self.applicant_events) | set(self.participant_events))]
 
     def __init__(self, username, email, status = '', description = ''):
         self.username = username

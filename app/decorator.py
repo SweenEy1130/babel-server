@@ -8,12 +8,12 @@ def check_auth(username):
 
 def not_authenticate():
     """Sends a 401 response that enables basic auth"""
-    return jsonify(results = {'WWW-Authenticate': 'Basic realm="Login Required"'}, status = 401)
+    return jsonify(results = {'WWW-Authenticate': 'Login Required'}, status = 401)
 
 def requires_auth(f):
     @wraps(f)
     def decorated(*args, **kwargs):
-        if check_auth(session['username']):
+        if 'username' in session and check_auth(session['username']):
             return f(*args, **kwargs)
         else:
             return not_authenticate()
