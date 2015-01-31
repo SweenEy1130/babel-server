@@ -67,7 +67,8 @@ class User(db.Model):
             'description': self.description,
             'owner_events': owner_events,
             'applicant_events': applicant_events,
-            'participant_events': participant_events
+            'participant_events': participant_events,
+            'id':self.id
         }
 
 class Event(db.Model):
@@ -114,5 +115,6 @@ class Event(db.Model):
             'create date': self.create_date,
             'owners': owners,
             'applicants': applicants,
-            'participants': participants
+            'participants': participants,
+            'id': self.id
         }

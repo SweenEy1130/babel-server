@@ -46,7 +46,15 @@ def Messages():
 @application.route('/events', methods = ['GET'])
 @requires_auth_html
 def Events():
-    return render_template('events.html')
+ #get the data
+        #action = int(request.form.get('action'))
+        action = 1
+        current_user = User.query.filter_by(username = session['username']).first()
+        result = current_user.GetUserEvents(action)
+
+        print(result)
+    #return jsonify(result = current_user.GetUserEvents(action))
+        return render_template('events.html', entries = result)
 
 @application.route('/event/<int:eid>', methods = ['GET'])
 @requires_auth_html
