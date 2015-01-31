@@ -6,5 +6,5 @@ application = Flask(__name__)
 db.init_app(application)
 
 # Register handlers
-import app.helloworld
+import app.database
 import app.login
