@@ -67,16 +67,16 @@ body{
     padding-top:18px;
 }
 /* Login Button */
-#loginButton { 
-    display:inline-block;  
+#loginButton {
+    display:inline-block;
     position:relative;
     z-index:30;
     cursor:pointer;
 }
 /* Login Button Text */
 #loginButton span {
-    color:#FFF; 
-    font-size:1em; 
+    color:#FFF;
+    font-size:1em;
     background:url(../images/loginArrow.png) no-repeat 26px 8px;
     display:block;
     padding: 0 25px 0 0;
@@ -95,7 +95,7 @@ body{
 }
 /* Login Form */
 #loginForm {
-    width:200px; 
+    width:200px;
     background:#1F253D;
     border-radius:5px;
     -webkit-border-radius:5px;
@@ -124,10 +124,10 @@ fieldset#body {
 .user-info h4 a{
 	color:#11A8AB;
 }
-.user-info ul li.profile{ 
+.user-info ul li.profile{
 	float:left;
 }
-.user-info ul li.logout{ 
+.user-info ul li.logout{
 	float:right;
 }
 .user-info ul li{
@@ -319,7 +319,7 @@ fieldset#body {
 .chart_list li a{
 	display: block;
 	color: #9099B7;
-	font-size:1em;	
+	font-size:1em;
 	padding:10px 0;
 	-webkit-transition: all 0.5s ease-in-out;
 	-moz-transition: all 0.5s ease-in-out;
@@ -330,7 +330,7 @@ fieldset#body {
 	background:#3F4663;
 }
 .chart_list li:nth-child(4){
-	border-right:none; 
+	border-right:none;
 }
 .chart_list li a.red{
 	border-top:5px solid #e64c65;
@@ -388,7 +388,7 @@ fieldset#body {
 }
 .week-month-year p{
 	display:inline-block;
-	margin-left:5px;	
+	margin-left:5px;
 }
 .week-month-year p:first-child{
 	margin-left:0;
@@ -428,7 +428,7 @@ fieldset#body {
 	-webkit-transition: all 0.5s ease-in-out;
 	-moz-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
-	transition: all 0.5s ease-in-out;	
+	transition: all 0.5s ease-in-out;
 }
 .graph_list li a label {
 	color: #FFF;
@@ -575,7 +575,7 @@ fieldset#body {
 .articles_list li a{
 	display: block;
 	color: #FFF;
-	font-size:1em;	
+	font-size:1em;
 	padding:20px 0;
 	-webkit-transition: all 0.5s ease-in-out;
 	-moz-transition: all 0.5s ease-in-out;
@@ -619,6 +619,11 @@ fieldset#body {
 }
 .weather h3 i img,.tweets h3 i img{
 	vertical-align:middle;
+}
+.join_button{
+	padding:1em 0;
+	background:#5eb95e;
+	text-align:center;
 }
 .today_temp{
 	padding:1em 0;
@@ -672,7 +677,7 @@ fieldset#body {
 	-webkit-transition: all 0.5s ease-in-out;
 	-moz-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
-	transition: all 0.5s ease-in-out;	
+	transition: all 0.5s ease-in-out;
 }
 .temp_list li a:hover span,.temp_list li.active a span{
 	color:#e64c65;
@@ -690,7 +695,7 @@ fieldset#body {
 	font-size:0.5em;
 	vertical-align:top;
 }
-.temp_list li a label i > img{ 
+.temp_list li a label i > img{
 	vertical-align: middle;
 	margin-top: -5px;
 }
@@ -741,7 +746,7 @@ fieldset#body {
 }
 .social_networks li a > i{
 	background:#1a4e95;
-	float:left;	
+	float:left;
 	padding:14px;
 	border-radius: 5px 0px 0px 5px;
 	-webkit-border-radius: 5px 0px 0px 5px;
@@ -826,11 +831,11 @@ fieldset#body {
 	padding:8px;
     color:#FFF;
     font-size:1em;
-    background:none;   
+    background:none;
     outline:none;
     border:none;
     margin:0px auto;
-    width:75%;  
+    width:75%;
     -webkit-apperance:none;
     font-family: 'ambleregular';
 }
@@ -842,7 +847,7 @@ fieldset#body {
 	cursor:pointer;
 	border:none;
 	outline:none;
-    background:#11a8ab;       
+    background:#11a8ab;
 	border-radius:5px;
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
@@ -870,7 +875,7 @@ fieldset#body {
 	-o-border-radius: 5px 5px 0 0;
 }
 .sign_in input[type="submit"]{
-    background:#e64c65;       
+    background:#e64c65;
 }
 .sign_in input[type="submit"]:hover{
         background: #d4465d;
@@ -1028,4 +1033,7 @@ fieldset#body {
 .copy-right p a:hover{
 	color:#FFF;
 	text-decoration:underline;
+}
+.trip{
+	margin-bottom: 10px;
 }

@@ -13,6 +13,8 @@ def SigninResolve():
         usrn = request.form.get('username')
         if usrn and check_auth(usrn):
             session['username'] = request.form.get('username')
+            __user = User.query.filter_by(username = session['username']).first()
+            session['id'] = __user.id
             return redirect(url_for('Index'))
         else:
             return redirect(url_for('Signin'))
@@ -52,7 +54,6 @@ def Events():
         current_user = User.query.filter_by(username = session['username']).first()
         result = current_user.GetUserEvents(action)
 
-        print(result)
     #return jsonify(result = current_user.GetUserEvents(action))
         return render_template('events.html', entries = result)
 
@@ -62,6 +63,21 @@ def ShowEventDetail(eid):
     __user = User.query.filter_by(username = session['username']).first()
     __event = Event.query.filter_by(id = eid).first()
 
-    print dict(__event.serialize)
     return render_template('event_detail.html', **dict(__event.serialize))
 
+@application.route('/event_join/<int:eid>', methods = ['GET'])
+@requires_auth_html
+def JoinEvent(eid):
+    __user = User.query.filter_by(username = session['username']).first()
+    __event = Event.query.filter_by(id = eid).first()
+    if __user in __event.applicants:
+        return "You have duplicated application!"
+    else:
+        __event.applicants.append(__user)
+
+    try:
+        db.session.commit()
+        return render_template('event_detail.html', **dict(__event.serialize))
+    except SQLAlchemyError as e:
+        return "%s"
+    return render_template('event_detail.html', **dict(__event.serialize))

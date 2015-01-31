@@ -99,15 +99,15 @@ class Event(db.Model):
 
     @property
     def serialize(self):
-        owners = [item.username for item in self.owners]
-        applicants = [item.username for item in self.applicants]
-        participants = [item.username for item in self.participants]
-
+        owners = [item.id for item in self.owners]
+        applicants = [item.id for item in self.applicants]
+        participants = [item.id for item in self.participants]
+        available = len(applicants)
         return {
             'title': self.title,
             'description': self.description,
             'capacity': self.capacity,
-            'available': self.available,
+            'available': available,
             'price': self.price,
             'location': self.location,
             'destination': self.destination,

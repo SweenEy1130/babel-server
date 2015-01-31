@@ -16,7 +16,7 @@
 							<div class="clear"></div></a></li>
 							<li><a href="#"><span class="day_name">To</span>&nbsp; {{destination}}
 							<div class="clear"></div></a></li>
-							<li><a href="#"><span class="day_name">Available</span>&nbsp; {{available}}/{{capacity}}
+							<li><a href="#"><span class="day_name">Participants</span>&nbsp; {{available}}/{{capacity}}
 							<div class="clear"></div></a></li>
 							<li><a href="#"><span class="day_name">Budget</span>&nbsp; {{price}}
 							<div class="clear"></div></a></li>
@@ -25,13 +25,20 @@
 
 							<li class="list">
 								<a href="#">
+                    			{% for item in applicants %}
 								<span class="day_name"></span>&nbsp;
-								<img src="{{ url_for('static', filename='avatar/1.jpg') }}" alt="" />
-								<span class="day_name"></span>&nbsp;
-								<img src="{{ url_for('static', filename='avatar/2.jpg') }}" alt="" />
+								<img src="{{ url_for('static', filename='avatar/')}}{{item}}.jpg" alt="" />
+								{% endfor %}
 								</a>
 							</li>
 				    	</ul>
+				    <div class="join_button">
+				    	<a href="/event_join/{{id}}">
+		            	<div class="temp">
+							<figure>Join</figure>
+						</div>
+						</a>
+					</div>
 				    </div>
 				</div>
 			</div>

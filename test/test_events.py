@@ -33,11 +33,11 @@ def TestCaseForEvents():
     r = requests.post(url, data = data, cookies = login_cookies)
     print r.text
 
-    # Test for deleting events
-    data = dict(eid = 3)
-    url = base_url + "/delete_event"
-    r = requests.post(url, data = data, cookies = login_cookies)
-    print r.text
+    # # Test for deleting events
+    # data = dict(eid = 3)
+    # url = base_url + "/delete_event"
+    # r = requests.post(url, data = data, cookies = login_cookies)
+    # print r.text
 
 def TestCaseForEventApply(eid):
     # Test for apply event
@@ -73,6 +73,8 @@ if __name__ == '__main__':
     # TestCaseForLogin('celia')
     # TestCaseForLogin('david')
 
+    TestCaseForEvents()
+
     # print "Test for event application"
     # TestCaseForEventApply(2)
     # print "Test for canceling event application"
@@ -80,8 +82,8 @@ if __name__ == '__main__':
 
     # print "Test for application approve"
     # TestCaseForApplicationApprove(1, 4)
-    print "Test for canceling application approve"
-    TestCaseForCancelApplicationApprove(1, 4)
+    # print "Test for canceling application approve"
+    # TestCaseForCancelApplicationApprove(1, 4)
 
     # print "Test for EventDisplay"
     # TestCaseForEventDisplay(4)
