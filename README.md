@@ -10,29 +10,29 @@ A social carpool application server based on Python flask framework for the back
 ### API Documentation
 #### Login
 
-`GET /login?username=adams&password=123`
+`POST /login            @parameter [username: String, password: String]`
 
 #### Logout
 
-`GET /logout`
+`POST /logout`
 
 -------------------------
 
 #### Create User
 
-`GET	/create_user	@parameter [username:zhangsan, password:123]`
+`POST	/create_user	@parameter [username:zhangsan, password:123]`
 
 #### Delete User
 
-`GET	/delete_user	@parameter [username:adams]`
+`POST	/delete_user	@parameter [username:adams]`
 
 #### Edit User
 
-`GET	/edit_user		@parameter [status: String, description: String]`
+`POST	/edit_user		@parameter [status: String, description: String]`
 
 #### View User
 
-`GET	/view_user		@parameter [username:String]`
+`POST	/view_user		@parameter [username:String]`
 
 ---------------
 

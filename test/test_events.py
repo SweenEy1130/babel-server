@@ -3,10 +3,10 @@ import requests
 
 base_url = 'http://192.168.1.88:80'
 
-def TestCaseForLogin(usrn):
-    # Login part
-    url = base_url + "/login?username=%s" % usrn
-    r = requests.get(url)
+def TestCaseForLogin(usrn, psw=''):
+    data = dict(username = usrn, password = psw)
+    url = base_url + "/login"
+    r = requests.post(url, data = data)
     global login_cookies
     login_cookies = r.cookies
     print r.text
@@ -41,7 +41,7 @@ def TestCaseForEvents():
 
 def TestCaseForEventApply(eid):
     # Test for apply event
-    data = dict(eid = )
+    data = dict(eid = eid)
     url = base_url + "/apply_event"
     r = requests.post(url, data=data, cookies = login_cookies)
     print r.text
