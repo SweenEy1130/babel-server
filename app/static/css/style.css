@@ -554,6 +554,11 @@ fieldset#body {
 	color:#FFF;
 	margin-bottom:10px;
 }
+.profile_picture_name h3{
+	/*font-size:1.5em;*/
+	color:#c0b9e7;
+	margin-bottom:10px;
+}
 .profile_picture_name p{
 	font-size:1em;
 	color:#9099b7;

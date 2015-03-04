@@ -20,18 +20,18 @@ def TestCaseForEventDisplay(action_code):
 
 def TestCaseForEvents():
     # Test for creating events
-    data = dict(title = 'Microsoft', description = 'Microsoft round trip', capacity = '10', available = '4', price = '>1000',
+    data = dict(title = 'Mine', description = 'Microsoft round trip', capacity = '10', available = '4', price = '>1000',
                     location = '2133 Norwood St', destination = 'UCLA', event_date = '11/30/1991 10:20:12')
     url = base_url + "/create_event"
     r = requests.post(url, data = data, cookies = login_cookies)
     print r.text
 
     # Test for editing events
-    data = dict(eid = 2, title = 'Google', description = 'Mountain View', capacity = '15', available = '4', price = '>500',
-                location = '2133 Norwood St', destination = 'UCLA', event_date = '11/30/1991 10:20:12')
-    url = base_url + "/edit_event"
-    r = requests.post(url, data = data, cookies = login_cookies)
-    print r.text
+    # data = dict(eid = 2, title = 'Google', description = 'Mountain View', capacity = '15', available = '4', price = '>500',
+    #             location = '2133 Norwood St', destination = 'UCLA', event_date = '11/30/1991 10:20:12')
+    # url = base_url + "/edit_event"
+    # r = requests.post(url, data = data, cookies = login_cookies)
+    # print r.text
 
     # # Test for deleting events
     # data = dict(eid = 3)
